@@ -74,6 +74,28 @@ export default function FormIntention({ form }: IFormIntention) {
       />
 
       <Controller
+        name="title"
+        control={form.control}
+        rules={{
+          required: "Titulo da proposta obrigatório",
+          minLength: { value: 3, message: "Mínimo de 3 caracteres" },
+        }}
+        render={({ field, fieldState }) => (
+          <Form.Item
+            label="Titulo da proposta"
+            validateStatus={fieldState.invalid ? "error" : ""}
+            help={fieldState.error?.message}
+          >
+            <Input
+              {...field}
+              onChange={(e) => field.onChange(maskPhone(e.target.value))}
+              placeholder="Digite o titulo da proposta"
+            />
+          </Form.Item>
+        )}
+      />
+
+      <Controller
         name="message"
         control={form.control}
         rules={{

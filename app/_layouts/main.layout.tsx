@@ -1,11 +1,12 @@
 "use client";
 
 import { Geist, Geist_Mono } from "next/font/google";
-import { Breadcrumb, Layout, Menu, Typography } from "antd";
+import { Breadcrumb, Button, Col, Layout, Menu, Typography } from "antd";
 import { getPaths } from "@/data/helpers/getPaths";
 import { usePathname } from "next/navigation";
 import { ItemType, MenuItemType } from "antd/es/menu/interface";
 import { useNavigation } from "@/data/helpers/navigation";
+import { useAuthStore } from "@/data/store/auth";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,6 +26,8 @@ export default function MainLayout({
   const pathname = usePathname();
   const paths = pathname ? getPaths(pathname) : [];
   const { handleNavigation } = useNavigation();
+
+  const { token, clearToken } = useAuthStore();
 
   const menu: ItemType<MenuItemType>[] = [
     {
@@ -48,12 +51,20 @@ export default function MainLayout({
         },
       ],
     },
+    token
+      ? {
+          label: "Aprovação de propostas",
+          key: "5",
+          onClick: () => handleNavigation("/admin"),
+        }
+      : null,
   ];
 
   const getSelectedKey = () => {
     if (pathname === "/home") return "1";
     if (pathname === "/intention") return "3";
     if (pathname === "/intention/my") return "4";
+    if (pathname === "/admin") return "5";
     return "";
   };
 
@@ -71,11 +82,23 @@ export default function MainLayout({
           style={{ flex: 1, minWidth: 0 }}
           items={menu}
         />
+        <Col style={{ display: "flex", justifyContent: "flex-end" }}>
+          <Button
+            type="primary"
+            onClick={() => {
+              handleNavigation("/");
+              clearToken();
+            }}
+          >
+            Logout
+          </Button>
+        </Col>
       </Layout.Header>
       <Layout.Content
         style={{
           padding: "0 48px",
           height: "85.3vh",
+          overflow: "auto",
         }}
       >
         <Breadcrumb

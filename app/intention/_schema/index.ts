@@ -5,6 +5,7 @@ export const formIntentionSchema = zod.object({
   email: zod.email(),
   phone: zod.string(),
   message: zod.string().min(3).max(1000),
+  title: zod.string().min(3).max(100),
 });
 
 export type FormIntentionType = zod.infer<typeof formIntentionSchema>;
