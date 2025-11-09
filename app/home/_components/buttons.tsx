@@ -1,6 +1,6 @@
 "use client";
 
-import ModalLogin from "@/_components/modalLogin";
+import ModalLogin from "@/app/_components/modalLogin";
 import { useNavigation } from "@/data/helpers/navigation";
 import { FileAddOutlined, UserSwitchOutlined } from "@ant-design/icons";
 import { Button, Col } from "antd";

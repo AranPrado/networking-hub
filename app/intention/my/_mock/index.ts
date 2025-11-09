@@ -7,6 +7,7 @@ export enum IntentionStatus {
 export type IntentionStatusType = keyof typeof IntentionStatus;
 
 export interface IntentionInterface {
+  id: string;
   title: string;
   message: string;
   createdAt: Date;
@@ -18,16 +19,18 @@ export interface IntentionInterface {
 
 export const mockIntention: IntentionInterface[] = [
   {
+    id: "1",
     title: "Proposta 1",
     createdAt: new Date(),
     email: "H2m2t@example.com",
     message:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, quibusdam.",
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, quibusdam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, quibusdam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, quibusdam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, quibusdam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, quibusdam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, quibusdam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, quibusdam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, quibusdam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, quibusdam.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos, quibusdam.",
     name: "Nome 1",
     phone: "11999999999",
     status: "PENDENTE",
   },
   {
+    id: "2",
     title: "Proposta 2",
     createdAt: new Date(),
     email: "cliente2@example.com",
@@ -38,6 +41,7 @@ export const mockIntention: IntentionInterface[] = [
     status: "APROVADO",
   },
   {
+    id: "3",
     title: "Proposta 3",
     createdAt: new Date(),
     email: "cliente3@example.com",
@@ -48,6 +52,7 @@ export const mockIntention: IntentionInterface[] = [
     status: "REPROVADO",
   },
   {
+    id: "4",
     title: "Proposta 4",
     createdAt: new Date(),
     email: "cliente4@example.com",
@@ -58,6 +63,7 @@ export const mockIntention: IntentionInterface[] = [
     status: "PENDENTE",
   },
   {
+    id: "5",
     title: "Proposta 5",
     createdAt: new Date(),
     email: "cliente5@example.com",
@@ -68,6 +74,7 @@ export const mockIntention: IntentionInterface[] = [
     status: "APROVADO",
   },
   {
+    id: "6",
     title: "Proposta 6",
     createdAt: new Date(),
     email: "cliente6@example.com",
@@ -78,6 +85,7 @@ export const mockIntention: IntentionInterface[] = [
     status: "REPROVADO",
   },
   {
+    id: "7",
     title: "Proposta 7",
     createdAt: new Date(),
     email: "cliente7@example.com",
@@ -88,6 +96,7 @@ export const mockIntention: IntentionInterface[] = [
     status: "PENDENTE",
   },
   {
+    id: "8",
     title: "Proposta 8",
     createdAt: new Date(),
     email: "cliente8@example.com",
@@ -98,6 +107,7 @@ export const mockIntention: IntentionInterface[] = [
     status: "APROVADO",
   },
   {
+    id: "9",
     title: "Proposta 9",
     createdAt: new Date(),
     email: "cliente9@example.com",
@@ -108,6 +118,7 @@ export const mockIntention: IntentionInterface[] = [
     status: "REPROVADO",
   },
   {
+    id: "10",
     title: "Proposta 10",
     createdAt: new Date(),
     email: "cliente10@example.com",
@@ -117,6 +128,7 @@ export const mockIntention: IntentionInterface[] = [
     status: "PENDENTE",
   },
   {
+    id: "11",
     title: "Proposta 11",
     createdAt: new Date(),
     email: "cliente11@example.com",

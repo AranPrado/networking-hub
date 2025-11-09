@@ -70,7 +70,16 @@ export default function MainLayout({
 
   return (
     <Layout>
-      <Layout.Header style={{ display: "flex", alignItems: "center", gap: 20 }}>
+      <Layout.Header
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 20,
+          position: "sticky",
+          top: 0,
+          zIndex: 9999,
+        }}
+      >
         <Typography.Title level={3} style={{ color: "#fff" }}>
           Networking Hub
         </Typography.Title>
@@ -82,22 +91,24 @@ export default function MainLayout({
           style={{ flex: 1, minWidth: 0 }}
           items={menu}
         />
-        <Col style={{ display: "flex", justifyContent: "flex-end" }}>
-          <Button
-            type="primary"
-            onClick={() => {
-              handleNavigation("/");
-              clearToken();
-            }}
-          >
-            Logout
-          </Button>
-        </Col>
+        {token && (
+          <Col style={{ display: "flex", justifyContent: "flex-end" }}>
+            <Button
+              type="primary"
+              onClick={() => {
+                handleNavigation("/");
+                clearToken();
+              }}
+            >
+              Logout
+            </Button>
+          </Col>
+        )}
       </Layout.Header>
       <Layout.Content
         style={{
           padding: "0 48px",
-          height: "85.3vh",
+
           overflow: "auto",
         }}
       >

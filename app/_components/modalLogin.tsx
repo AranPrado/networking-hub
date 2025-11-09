@@ -61,12 +61,12 @@ const FormLogin = ({ form }: IformLogin) => {
   );
 };
 
-interface IModalLogin {
+export interface IModalBase {
   open: boolean;
   onClose: () => void;
 }
 
-export default function ModalLogin({ open, onClose }: IModalLogin) {
+export default function ModalLogin({ open, onClose }: IModalBase) {
   const form = useForm<FormLoginSchema>();
   const { setToken } = useAuthStore();
   const { handleNavigation } = useNavigation();

@@ -1,25 +1,25 @@
 "use client";
 
-import { Col, Row } from "antd";
-import { mockIntention } from "../_mock";
-
-import HeaderTitle from "@/app/_components/headerTitle";
 import CardsIntention from "@/app/_components/cards";
+import HeaderTitle from "@/app/_components/headerTitle";
+import { mockIntention } from "@/app/intention/my/_mock";
+import { Col, Row } from "antd";
 
-export default function RenderPageMyIntention() {
+export default function RenderPageAdmin() {
   return (
     <Row>
       <HeaderTitle title="Minhas propostas" />
       <Col
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr 1fr 1fr",
+          gridTemplateColumns: "1fr 1fr 1fr ",
           gap: "1rem",
         }}
       >
         {mockIntention.map((item, index) => (
           <CardsIntention
-            type="user"
+            id={item.id}
+            type="admin"
             key={index}
             createdAt={item.createdAt}
             email={item.email}
